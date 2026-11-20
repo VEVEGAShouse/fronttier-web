@@ -204,7 +204,7 @@
     PROG = reduce ? 1 : ease((performance.now() - cT0) / 3200);
     c.strokeStyle = INK; c.lineWidth = .8;
     c.setLineDash([1.5, 5 - near * 3]);
-    island(c, cx, cy, R, NEXT.h, t * .6, { alpha: .45 + near * .5, rings: 13 });
+    island(c, cx, cy, R, NEXT.h, t * .6, { alpha: .6 + near * .4, rings: 13 });
     c.setLineDash([]); PROG = 1;
     // a survey mark where the next one will stand
     c.globalAlpha = .9; c.strokeStyle = COBALT; c.lineWidth = 1;
@@ -212,7 +212,7 @@
     c.globalAlpha = .25 + .2 * Math.sin(t * 2); c.beginPath(); c.arc(cx, cy, 16 + ((t * 12) % 24), 0, 6.2832); c.stroke();
     c.globalAlpha = 1;
     // its label
-    var lx = cx + R * .85, ly = cy - R * .95;
+    var lx = cx + R * .42, ly = cy - R * .5;
     c.strokeStyle = INK; c.lineWidth = 1; c.beginPath(); c.moveTo(cx + 6, cy - 6); c.lineTo(lx, ly); c.lineTo(lx + 26, ly); c.stroke();
     c.fillStyle = INK; c.font = '400 11px "IBM Plex Mono", monospace';
     c.globalAlpha = .55; c.fillText('T—09', lx + 34, ly - 6);

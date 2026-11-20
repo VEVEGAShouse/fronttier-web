@@ -66,7 +66,7 @@ a { color: inherit; text-decoration: none; }
 /* IV. the unmapped */
 .close { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
 #closeMap { position: absolute; inset: 0; width: 100%; height: 100%; }
-.close__text { position: relative; padding: 0 var(--pad) clamp(70px, 12svh, 140px); max-width: 760px; }
+.close__text { position: relative; padding: 0 var(--pad) clamp(70px, 12svh, 140px); max-width: 1040px; }
 .close__k { margin: 0 0 24px; color: var(--mute); }
 .close__t { margin: 0; font-weight: 200; font-size: clamp(48px, 7.4vw, 128px); line-height: .93; letter-spacing: -.05em; }
 .close__s { margin: 26px 0 0; font-size: clamp(16px, 1.4vw, 20px); font-weight: 300; color: #3a3b3a; }
