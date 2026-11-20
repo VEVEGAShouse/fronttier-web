@@ -38,11 +38,18 @@
     }
     c.closePath(); c.stroke();
   }
+  var PROG = 1; // how much of the terrain has risen (0..1)
   function island(c, cx, cy, R, h, t, o) {
-    var N = o.rings || 9;
-    for (var k = 0; k < N; k++) { c.globalAlpha = o.alpha * (.35 + .65 * (k + 1) / N); ring(c, cx, cy, R, h, k, N, t, o); }
+    var N = o.rings || 9, show = PROG * N;
+    for (var k = N - 1; k >= 0; k--) {
+      var idx = N - 1 - k; if (idx >= show) break;
+      c.globalAlpha = o.alpha * (.35 + .65 * (k + 1) / N) * Math.min(1, show - idx);
+      ring(c, cx, cy, R, h, k, N, t, o);
+    }
     c.globalAlpha = o.alpha;
   }
+  function ease(x) { x = Math.max(0, Math.min(1, x)); return 1 - Math.pow(1 - x, 3); }
+  var T0 = performance.now();
 
   // draw one territory in its own way
   function draw(c, d, cx, cy, R, t, alpha, ink, acc) {
@@ -146,10 +153,13 @@
     graticule(c, M.w, M.h);
     hot = mx >= 0 ? pick() : null;
     atlas.style.cursor = hot ? 'pointer' : 'crosshair';
-    T.forEach(function (d) {
+    var el = (performance.now() - T0) / 1000;
+    T.forEach(function (d, i) {
       var g = geo(d), a = hot ? (hot === d ? 1 : .28) : .78;
+      PROG = reduce ? 1 : ease((el - .25 - i * .14) / 1.8);
       draw(c, d, g.x, g.y, g.R, t, a, INK);
     });
+    PROG = 1;
     if (hot) {
       var g = geo(hot), right = g.x + g.R * 1.2 + 230 < M.w;
       var ex = g.x + (right ? 1 : -1) * g.R * .95, ey = g.y - g.R * .55, lx = g.x + (right ? 1 : -1) * (g.R * 1.25 + 30), ly = ey - 26;
@@ -170,9 +180,43 @@
 
   /* ---------- II. the enclave ---------- */
   var enc = document.getElementById('encMap'), E = setup(enc), encOn = false, D0 = T[0];
+  var encT = null;
   function frameEnclave() {
     var c = E.c; c.clearRect(0, 0, E.w, E.h);
+    if (encT === null) encT = performance.now();
+    PROG = reduce ? 1 : ease((performance.now() - encT) / 2600);
     draw(c, D0, E.w * .46, E.h * .5, Math.min(E.w, E.h) * .4, t, 1, PAPER, '#7d89ff');
+    PROG = 1;
+  }
+
+  /* ---------- IV. the unmapped territory ---------- */
+  var cm = document.getElementById('closeMap'), C = setup(cm), closeOn = false, cT0 = null, cmx = -1, cmy = -1;
+  var NEXT = { id: 'next', h: [{ f: 2, a: .14, p: 1.1 }, { f: 3, a: .09, p: 4.2 }, { f: 5, a: .05, p: 2.7 }, { f: 7, a: .03, p: .4 }] };
+  var closeSec = document.getElementById('close');
+  closeSec.addEventListener('mousemove', function (e) { var b = closeSec.getBoundingClientRect(); cmx = e.clientX - b.left; cmy = e.clientY - b.top; });
+  closeSec.addEventListener('mouseleave', function () { cmx = cmy = -1; });
+  function frameClose() {
+    var c = C.c; c.clearRect(0, 0, C.w, C.h);
+    if (cT0 === null) cT0 = performance.now();
+    graticule(c, C.w, C.h);
+    var wide = C.w > 860, cx = C.w * (wide ? .7 : .62), cy = C.h * (wide ? .42 : .3), R = Math.min(C.w, C.h) * (wide ? .26 : .24);
+    var near = cmx < 0 ? 0 : Math.max(0, 1 - Math.hypot(cmx - cx, cmy - cy) / (R * 2.2));
+    PROG = reduce ? 1 : ease((performance.now() - cT0) / 3200);
+    c.strokeStyle = INK; c.lineWidth = .8;
+    c.setLineDash([1.5, 5 - near * 3]);
+    island(c, cx, cy, R, NEXT.h, t * .6, { alpha: .45 + near * .5, rings: 13 });
+    c.setLineDash([]); PROG = 1;
+    // a survey mark where the next one will stand
+    c.globalAlpha = .9; c.strokeStyle = COBALT; c.lineWidth = 1;
+    c.beginPath(); c.arc(cx, cy, 5 + Math.sin(t * 2) * 1.5, 0, 6.2832); c.stroke();
+    c.globalAlpha = .25 + .2 * Math.sin(t * 2); c.beginPath(); c.arc(cx, cy, 16 + ((t * 12) % 24), 0, 6.2832); c.stroke();
+    c.globalAlpha = 1;
+    // its label
+    var lx = cx + R * .85, ly = cy - R * .95;
+    c.strokeStyle = INK; c.lineWidth = 1; c.beginPath(); c.moveTo(cx + 6, cy - 6); c.lineTo(lx, ly); c.lineTo(lx + 26, ly); c.stroke();
+    c.fillStyle = INK; c.font = '400 11px "IBM Plex Mono", monospace';
+    c.globalAlpha = .55; c.fillText('T—09', lx + 34, ly - 6);
+    c.globalAlpha = 1; c.fillText('UNMAPPED', lx + 34, ly + 9);
   }
 
   /* ---------- III. the register ---------- */
@@ -201,16 +245,20 @@
   /* ---------- loop ---------- */
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.target === atlas) atlasOn = e.isIntersecting; else encOn = e.isIntersecting; }); }).observe(atlas);
-    new IntersectionObserver(function (es) { encOn = es[0].isIntersecting; }).observe(enc);
-  } else encOn = true;
-  window.addEventListener('resize', function () { M = setup(map); E = setup(enc); });
+    new IntersectionObserver(function (es) { encOn = es[0].isIntersecting; }, { rootMargin: '-15% 0px' }).observe(enc);
+    new IntersectionObserver(function (es) { closeOn = es[0].isIntersecting; }, { rootMargin: '-10% 0px' }).observe(cm);
+    var rv = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); rv.unobserve(e.target); } }); }, { rootMargin: '0px 0px -12% 0px' });
+    document.querySelectorAll('.rv, .row').forEach(function (n, i) { rv.observe(n); });
+  } else { encOn = closeOn = true; document.querySelectorAll('.rv, .row').forEach(function (n) { n.classList.add('in'); }); }
+  window.addEventListener('resize', function () { M = setup(map); E = setup(enc); C = setup(cm); });
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  frameAtlas(); frameEnclave();
+  frameAtlas();
   (function loop() {
     if (!reduce) t += 1 / 60;
     if (atlasOn) frameAtlas();
     if (encOn) frameEnclave();
+    if (closeOn) frameClose();
     frameRow();
     requestAnimationFrame(loop);
   })();
