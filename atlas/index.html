@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FRONTTIER — An atlas of new territories</title>
+  <meta name="description" content="FRONTTIER AS is the backstage of new territories: programmes, reports, concepts and prototypes by Virginia E. Vegas.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f6f6f3">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+  <header class="top">
+    <a class="mark" href="/atlas/" aria-label="FRONTTIER">FRONTTIER</a>
+    <span class="mono top__mid">Atlas · 9 territories</span>
+    <a class="mono" href="mailto:admin@fronttier.io">Contact</a>
+  </header>
+
+  <!-- I. the atlas -->
+  <section class="atlas" id="atlas" aria-label="Atlas of territories">
+    <canvas id="map" aria-hidden="true"></canvas>
+    <div class="callout" id="callout" hidden>
+      <span class="mono callout__n" id="cN"></span>
+      <span class="callout__t" id="cT"></span>
+      <span class="mono callout__m" id="cM"></span>
+    </div>
+    <div class="atlas__text">
+      <p class="mono atlas__k">FRONTTIER AS · Oslo</p>
+      <h1 class="atlas__t">The backstage<br>of new territories.</h1>
+      <p class="atlas__s">Where Virginia E.&nbsp;Vegas maps what comes next. Programmes, reports, concepts, one prototype. Some open, some sealed.</p>
+    </div>
+    <p class="mono atlas__coord" id="coord">64.00°N · 10.00°E</p>
+    <p class="mono atlas__hint">Hover a territory</p>
+  </section>
+
+  <!-- II. the enclave -->
+  <section class="enclave" id="enclave" aria-labelledby="encT">
+    <div class="enclave__map"><canvas id="encMap" aria-hidden="true"></canvas></div>
+    <div class="enclave__text">
+      <p class="mono enclave__k"><i></i>T—00 · Prototype · Sealed</p>
+      <h2 class="enclave__t" id="encT">Enclave</h2>
+      <p class="enclave__lead">A sovereign territory inside another.</p>
+      <p class="enclave__p">The cost of infrastructure has collapsed. What once took a city, a state or a collective can now be held by one household. Enclave is our prototype: a kit to stand on your own ground, sovereign within the sovereign.</p>
+      <p class="mono enclave__f">Experiment in progress · Access by invitation</p>
+    </div>
+  </section>
+
+  <!-- III. the register -->
+  <section class="reg" aria-labelledby="regT">
+    <div class="reg__head">
+      <h2 class="mono" id="regT">The register</h2>
+      <span class="mono">Territory</span><span class="mono">Kind</span><span class="mono">Year</span><span class="mono">Access</span>
+    </div>
+    <ol class="reg__list" id="reg"></ol>
+  </section>
+
+  <!-- IV. close -->
+  <section class="close">
+    <p class="close__t">Every frontier<br>starts as a rumour.</p>
+    <a class="close__mail" href="mailto:admin@fronttier.io">admin@fronttier.io <span>→</span></a>
+  </section>
+
+  <footer class="foot mono">
+    <span>FRONTTIER AS · Norway</span>
+    <span>Mapped by Virginia E. Vegas</span>
+    <span>© <span id="year">2026</span></span>
+  </footer>
+
+  <script src="app.js?v=1" defer></script>
+</body>
+</html>
