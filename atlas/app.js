@@ -12,8 +12,8 @@
     { id: 'vcc', n: '01', name: 'VC Challenge', kind: 'Programme', year: '2020 — 24', url: 'https://vcchallenge.com', line: 'An accelerator for around 100 Nordic fund managers.', x: .15, y: .27, r: .085 },
     { id: 'hot', n: '02', name: 'House of Thought', kind: 'Essays', year: 'Ongoing', url: 'https://vevegas.com', line: 'Where Virginia E. Vegas thinks out loud.', x: .92, y: .55, r: .06 },
     { id: 'eur', n: '03', name: 'Europeism', kind: 'Concept', year: '2026', url: 'https://europeism.com', line: 'Re-thinking the idea of Europe, one draft at a time.', x: .82, y: .22, r: .085 },
-    { id: 'ocean', n: '04', name: 'The Nordic Ocean Opportunity', kind: 'Report · Norden', year: '2025', url: 'https://www.norden.org/en/publication/nordic-ocean-opportunity', line: 'The investment thesis for the Nordic Ocean Economy, built on the FRONTTIER framework.', x: .58, y: .9, r: .1 },
-    { id: 'health', n: '05', name: 'Nordic Health Tech', kind: 'Report · Norden', year: '2023', url: 'https://www.norden.org/en/publication/investor-approaches-and-perspectives-nordic-health-tech', line: 'Investor approaches and perspectives: why capital hesitates, and how to close the gap.', x: .88, y: .86, r: .055 },
+    { id: 'ocean', n: '04', name: 'The Nordic Ocean Opportunity', kind: 'Report · Norden', year: '2025', url: 'https://www.norden.org/en/publication/nordic-ocean-opportunity', line: 'The investment thesis for the Nordic Ocean Economy, built on the FRONTTIER framework.', x: .66, y: .93, r: .1 },
+    { id: 'health', n: '05', name: 'Nordic Health Tech', kind: 'Report · Norden', year: '2023', url: 'https://www.norden.org/en/publication/investor-approaches-and-perspectives-nordic-health-tech', line: 'Investor approaches and perspectives: why capital hesitates, and how to close the gap.', x: .9, y: .77, r: .05 },
     { id: 'green', n: '06', name: 'The Greenland Opportunity', kind: 'Investment thesis', year: '—', url: null, line: 'An investment thesis for Greenland.', x: .36, y: .2, r: .085 },
     { id: 'arctic', n: '07', name: 'Arcticonomics', kind: 'Concept', year: '—', url: null, line: 'The Arctic as an economic system.', x: .55, y: .13, r: .055 },
     { id: 'returns', n: '08', name: 'Nordic Re:turns', kind: 'Concept', year: '—', url: null, line: 'Returns from the efficient use of resources.', x: .33, y: .47, r: .05 }
@@ -45,18 +45,19 @@
   }
 
   // draw one territory in its own way
-  function draw(c, d, cx, cy, R, t, alpha, ink) {
+  function draw(c, d, cx, cy, R, t, alpha, ink, acc) {
+    var AC = acc || COBALT;
     c.strokeStyle = ink; c.fillStyle = ink; c.lineWidth = .8; c.setLineDash([]);
     var o = { alpha: alpha };
     switch (d.id) {
       case 'enclave':
         island(c, cx, cy, R, d.h, t, { alpha: alpha, rings: 12 });
         var ix = cx + R * .2, iy = cy + R * .06, ir = R * .3;
-        c.strokeStyle = COBALT; c.lineWidth = 1;
+        c.strokeStyle = AC; c.lineWidth = 1;
         island(c, ix, iy, ir, d.h.map(function (q) { return { f: q.f + 1, a: q.a * .8, p: q.p + 1 }; }), t * 1.4, { alpha: Math.min(1, alpha * 1.4), rings: 6 });
         c.setLineDash([2, 4]); c.globalAlpha = alpha;
         c.beginPath(); c.ellipse(ix, iy, ir * 1.5, ir * 1.32, 0, 0, 6.2832); c.stroke(); c.setLineDash([]);
-        c.fillStyle = COBALT; c.fillRect(ix - 2.5, iy - 2.5, 5, 5);
+        c.fillStyle = AC; c.fillRect(ix - 2.5, iy - 2.5, 5, 5);
         break;
       case 'vcc':
         [[25, -.55, .2], [44, .1, -.25], [30, .62, .32]].forEach(function (q, j) {
@@ -171,7 +172,7 @@
   var enc = document.getElementById('encMap'), E = setup(enc), encOn = false, D0 = T[0];
   function frameEnclave() {
     var c = E.c; c.clearRect(0, 0, E.w, E.h);
-    draw(c, D0, E.w * .46, E.h * .5, Math.min(E.w, E.h) * .4, t, 1, PAPER);
+    draw(c, D0, E.w * .46, E.h * .5, Math.min(E.w, E.h) * .4, t, 1, PAPER, '#7d89ff');
   }
 
   /* ---------- III. the register ---------- */
