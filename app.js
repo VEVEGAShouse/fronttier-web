@@ -220,21 +220,13 @@
   }
 
   /* ---------- III. the register ---------- */
-  var reg = document.getElementById('reg'), rowHot = null;
+  var rowHot = null;
   T.forEach(function (d) {
-    var li = document.createElement('li'); li.className = 'row' + (d.url ? ' is-open' : ''); li.id = 'row-' + d.id;
-    var a = document.createElement('a');
-    a.href = d.url || '#enclave';
-    if (d.url) { a.target = '_blank'; a.rel = 'noopener'; }
-    a.innerHTML = '<span class="mono row__n">T—' + d.n + '</span>' +
-      '<span class="row__name">' + d.name + '<span class="row__line">' + d.line + '</span></span>' +
-      '<span class="mono row__kind">' + d.kind + '</span><span class="mono row__year">' + d.year + '</span>' +
-      '<span class="mono row__acc">' + (d.url ? 'Open ↗' : 'Sealed') + '</span><canvas></canvas>';
+    var li = document.getElementById('row-' + d.id); if (!li) return;
+    var a = li.querySelector('a'), cv = li.querySelector('canvas');
     if (!d.url && d.id !== 'enclave') a.addEventListener('click', function (e) { e.preventDefault(); });
-    var cv = a.querySelector('canvas');
     a.addEventListener('mouseenter', function () { rowHot = { d: d, g: setup(cv) }; });
     a.addEventListener('mouseleave', function () { rowHot = null; });
-    li.appendChild(a); reg.appendChild(li);
   });
   function frameRow() {
     if (!rowHot) return;

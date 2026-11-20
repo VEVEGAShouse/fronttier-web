@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fronttier.io/sitemap.xml

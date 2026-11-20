@@ -4,12 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FRONTTIER — An atlas of new territories</title>
-  <meta name="description" content="FRONTTIER AS is the backstage of new territories: programmes, reports, concepts and prototypes by Virginia E. Vegas.">
+  <meta name="description" content="FRONTTIER AS (Oslo) is the backstage of new territories: VC Challenge, Europeism, House of Thought, Nordic Innovation reports on the ocean economy and health tech, and Enclave. By Virginia E. Vegas.">
   <link rel="canonical" href="https://fronttier.io/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://fronttier.io/">
   <meta property="og:title" content="FRONTTIER — The backstage of new territories">
   <meta property="og:description" content="An atlas of programmes, reports, concepts and one prototype by Virginia E. Vegas.">
+  <meta property="og:site_name" content="FRONTTIER">
+  <meta property="og:image" content="https://fronttier.io/og.png">
+  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="FRONTTIER — The backstage of new territories">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://fronttier.io/og.png">
+  <meta name="author" content="Virginia E. Vegas">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://fronttier.io/#org", "name": "FRONTTIER AS", "legalName": "FRONTTIER AS", "url": "https://fronttier.io/", "email": "admin@fronttier.io", "logo": "https://fronttier.io/favicon.svg", "address": {"@type": "PostalAddress", "addressLocality": "Oslo", "addressCountry": "NO"}, "founder": {"@id": "https://vevegas.com/#virginia"}}, {"@type": "Person", "@id": "https://vevegas.com/#virginia", "name": "Virginia E. Vegas", "alternateName": "VE VEGAS", "url": "https://vevegas.com/", "worksFor": {"@id": "https://fronttier.io/#org"}}, {"@type": "WebSite", "@id": "https://fronttier.io/#site", "url": "https://fronttier.io/", "name": "FRONTTIER", "publisher": {"@id": "https://fronttier.io/#org"}, "inLanguage": "en"}, {"@type": "ItemList", "name": "Territories by FRONTTIER AS", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "CreativeWork", "name": "VC Challenge", "url": "https://vcchallenge.com/", "creator": {"@id": "https://fronttier.io/#org"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "CreativeWork", "name": "House of Thought", "url": "https://vevegas.com/", "creator": {"@id": "https://fronttier.io/#org"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "CreativeWork", "name": "Europeism", "url": "https://europeism.com/", "creator": {"@id": "https://fronttier.io/#org"}}}, {"@type": "ListItem", "position": 4, "item": {"@type": "CreativeWork", "name": "The Nordic Ocean Opportunity", "url": "https://www.norden.org/en/publication/nordic-ocean-opportunity", "creator": {"@id": "https://fronttier.io/#org"}}}, {"@type": "ListItem", "position": 5, "item": {"@type": "CreativeWork", "name": "Investor approaches and perspectives in Nordic Health Tech", "url": "https://www.norden.org/en/publication/investor-approaches-and-perspectives-nordic-health-tech", "creator": {"@id": "https://fronttier.io/#org"}}}]}]}</script>
   <meta name="theme-color" content="#f6f6f3">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,7 +67,17 @@
       <h2 class="mono" id="regT">The register</h2>
       <span class="mono">Territory</span><span class="mono">Kind</span><span class="mono">Year</span><span class="mono">Access</span>
     </div>
-    <ol class="reg__list" id="reg"></ol>
+    <ol class="reg__list" id="reg">
+      <li class="row" id="row-enclave"><a href="#enclave"><span class="mono row__n">T—00</span><span class="row__name">Enclave<span class="row__line">A sovereign territory inside another.</span></span><span class="mono row__kind">Prototype</span><span class="mono row__year">2025 —</span><span class="mono row__acc">Sealed</span><canvas></canvas></a></li>
+      <li class="row is-open" id="row-vcc"><a href="https://vcchallenge.com" target="_blank" rel="noopener"><span class="mono row__n">T—01</span><span class="row__name">VC Challenge<span class="row__line">An accelerator for around 100 Nordic fund managers.</span></span><span class="mono row__kind">Programme</span><span class="mono row__year">2020 — 24</span><span class="mono row__acc">Open ↗</span><canvas></canvas></a></li>
+      <li class="row is-open" id="row-hot"><a href="https://vevegas.com" target="_blank" rel="noopener"><span class="mono row__n">T—02</span><span class="row__name">House of Thought<span class="row__line">Where Virginia E. Vegas thinks out loud.</span></span><span class="mono row__kind">Essays</span><span class="mono row__year">Ongoing</span><span class="mono row__acc">Open ↗</span><canvas></canvas></a></li>
+      <li class="row is-open" id="row-eur"><a href="https://europeism.com" target="_blank" rel="noopener"><span class="mono row__n">T—03</span><span class="row__name">Europeism<span class="row__line">Re-thinking the idea of Europe, one draft at a time.</span></span><span class="mono row__kind">Concept</span><span class="mono row__year">2026</span><span class="mono row__acc">Open ↗</span><canvas></canvas></a></li>
+      <li class="row is-open" id="row-ocean"><a href="https://www.norden.org/en/publication/nordic-ocean-opportunity" target="_blank" rel="noopener"><span class="mono row__n">T—04</span><span class="row__name">The Nordic Ocean Opportunity<span class="row__line">The investment thesis for the Nordic Ocean Economy, built on the FRONTTIER framework.</span></span><span class="mono row__kind">Report · Norden</span><span class="mono row__year">2025</span><span class="mono row__acc">Open ↗</span><canvas></canvas></a></li>
+      <li class="row is-open" id="row-health"><a href="https://www.norden.org/en/publication/investor-approaches-and-perspectives-nordic-health-tech" target="_blank" rel="noopener"><span class="mono row__n">T—05</span><span class="row__name">Nordic Health Tech<span class="row__line">Investor approaches and perspectives: why capital hesitates, and how to close the gap.</span></span><span class="mono row__kind">Report · Norden</span><span class="mono row__year">2023</span><span class="mono row__acc">Open ↗</span><canvas></canvas></a></li>
+      <li class="row" id="row-green"><a href="#enclave"><span class="mono row__n">T—06</span><span class="row__name">The Greenland Opportunity<span class="row__line">An investment thesis for Greenland.</span></span><span class="mono row__kind">Investment thesis</span><span class="mono row__year">—</span><span class="mono row__acc">Sealed</span><canvas></canvas></a></li>
+      <li class="row" id="row-arctic"><a href="#enclave"><span class="mono row__n">T—07</span><span class="row__name">Arcticonomics<span class="row__line">The Arctic as an economic system.</span></span><span class="mono row__kind">Concept</span><span class="mono row__year">—</span><span class="mono row__acc">Sealed</span><canvas></canvas></a></li>
+      <li class="row" id="row-returns"><a href="#enclave"><span class="mono row__n">T—08</span><span class="row__name">Nordic Re:turns<span class="row__line">Returns from the efficient use of resources.</span></span><span class="mono row__kind">Concept</span><span class="mono row__year">—</span><span class="mono row__acc">Sealed</span><canvas></canvas></a></li>
+    </ol>
   </section>
 
   <!-- IV. the unmapped -->
