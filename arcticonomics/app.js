@@ -193,7 +193,7 @@
     if (!reduce) t += 1 / 60;
     if (ridgeOn) drawRidge(R, stars, { base: .99, top: .5, marks: true });
     if (proofOn) frameProof();
-    if (endOn) drawRidge(E, estars, { base: 1.02, top: .62 });
+    if (endOn) drawRidge(E, estars, { base: 1.04, top: .8 });
     requestAnimationFrame(loop);
   })();
 })();
