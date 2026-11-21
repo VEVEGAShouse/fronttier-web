@@ -151,7 +151,7 @@
     // readouts
     nowY.textContent = label(end).split(' ')[1];
     nowP.textContent = '$' + Math.round(series(end));
-    nowU.textContent = mix > .5 ? ' a barrel, in October 2026 dollars' : ' a barrel, in the dollars of the day';
+    nowU.textContent = mix > .5 ? ', in October 2026 dollars' : ', in the dollars of the day';
     if (cur !== lastEv) {
       lastEv = cur;
       var e = EV[cur];

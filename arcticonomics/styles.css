@@ -39,21 +39,22 @@ em { font-style: normal; color: var(--amber); }
 .switch button { appearance: none; border: 0; background: none; color: var(--mist); font: inherit; letter-spacing: inherit; text-transform: inherit; padding: 10px 16px; border-radius: 999px; cursor: pointer; transition: background .4s, color .4s; }
 .switch button[aria-selected="true"] { background: var(--ice); color: var(--night); }
 .switch button[data-w="break"][aria-selected="true"] { background: var(--amber); }
-.scale { position: relative; height: 190px; margin: 54px 0 0; }
-.scale__axis { position: absolute; left: 0; right: 0; bottom: 40px; height: 1px; background: var(--line); }
-.tick { position: absolute; bottom: 40px; transform: translateX(-50%); transition: left 1.2s var(--ease); }
+.scale { position: relative; height: 250px; margin: 40px 0 0; }
+.scale__axis { position: absolute; left: 0; right: 0; bottom: 70px; height: 1px; background: var(--line); }
+.tick { position: absolute; bottom: 70px; transform: translateX(-50%); transition: left 1.2s var(--ease); }
 .tick i { display: block; width: 1px; height: 70px; background: var(--mist); margin: 0 auto; }
 .tick span { position: absolute; bottom: 78px; left: 50%; transform: translateX(-50%); white-space: nowrap; text-align: center; color: var(--mist); line-height: 1.6; }
 .tick b { color: var(--ice); font-weight: 500; }
 .tick--sa { left: 1.33%; }
-.tick--sa span { left: 0; transform: none; text-align: left; }
+.tick--sa span { left: 0; transform: none; text-align: left; bottom: auto; top: 84px; }
+.tick--sa i { height: 80px; transform: translateY(0); }
 .tick--no { left: 20%; }
 .tick--no i { background: var(--ice); }
-.tick--mk { left: 13.3%; bottom: 40px; }
+.tick--mk { left: 13.3%; }
 .tick--mk i { height: 130px; width: 2px; background: var(--ice); transition: background .6s; }
 .tick--mk span { bottom: 138px; }
 .tick--mk b { font-size: 15px; }
-.gap { position: absolute; bottom: 40px; height: 54px; left: 13.3%; width: 6.7%; background: rgba(238,243,245,.08); border-top: 1px dashed var(--mist); transition: left 1.2s var(--ease), width 1.2s var(--ease), background .6s; }
+.gap { position: absolute; bottom: 70px; height: 54px; left: 13.3%; width: 6.7%; background: rgba(238,243,245,.08); border-top: 1px dashed var(--mist); transition: left 1.2s var(--ease), width 1.2s var(--ease), background .6s; }
 .law.is-break .tick--mk i { background: var(--amber); }
 .law.is-break .gap { background: color-mix(in srgb, var(--amber) 22%, transparent); border-top-color: var(--amber); }
 .law__out { margin: 18px 0 0; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
