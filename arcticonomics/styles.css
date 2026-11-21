@@ -145,10 +145,11 @@ em { font-style: normal; color: var(--amber); }
   .bar { mix-blend-mode: normal; background: rgba(5,7,10,.7); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
   .hero__txt { top: 16svh; }
   .law { grid-template-columns: 1fr; padding-top: 12svh; }
-  .scale { height: 170px; }
+  .scale { height: 250px; margin-top: 70px; }
+  .tick--no span { left: 0; transform: none; text-align: left; }
   .tick span { font-size: 9px; }
   .proof__head { top: 66px; }
-  .now { top: 118px; }
+  .now { top: 150px; }
   .now__y { font-size: 64px; }
   .ev { top: auto; bottom: 64px; left: var(--pad); right: var(--pad); width: auto; text-align: left; }
   .ev__t { font-size: 21px; }
