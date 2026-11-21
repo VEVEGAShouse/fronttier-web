@@ -15,7 +15,7 @@
     { id: 'ocean', n: '04', name: 'The Nordic Ocean Opportunity', kind: 'Report · Norden', year: '2025', url: 'https://www.norden.org/en/publication/nordic-ocean-opportunity', line: 'The investment thesis for the Nordic Ocean Economy, built on the FRONTTIER framework.', x: .66, y: .93, r: .1 },
     { id: 'health', n: '05', name: 'Nordic Health Tech', kind: 'Report · Norden', year: '2023', url: 'https://www.norden.org/en/publication/investor-approaches-and-perspectives-nordic-health-tech', line: 'Investor approaches and perspectives: why capital hesitates, and how to close the gap.', x: .9, y: .77, r: .05 },
     { id: 'green', n: '06', name: 'The Greenland Opportunity', kind: 'Investment thesis', year: '—', url: null, line: 'An investment thesis for Greenland.', x: .36, y: .2, r: .085 },
-    { id: 'arctic', n: '07', name: 'Arcticonomics', kind: 'Concept', year: '—', url: null, line: 'The Arctic as an economic system.', x: .55, y: .13, r: .055 },
+    { id: 'arctic', n: '07', name: 'Arcticonomics', kind: 'Theory', year: '2025', url: 'https://arctic-onomics.com', line: 'When the world breaks, the Arctic wins.', x: .55, y: .13, r: .055 },
     { id: 'returns', n: '08', name: 'Nordic Re:turns', kind: 'Concept', year: '—', url: null, line: 'Returns from the efficient use of resources.', x: .33, y: .47, r: .05 }
   ];
 
