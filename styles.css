@@ -74,6 +74,8 @@ a { color: inherit; text-decoration: none; }
 .close__lab { grid-column: 1 / -1; margin-bottom: 10px; color: var(--mute); letter-spacing: .08em; }
 .close__mail i { font-style: normal; color: var(--cobalt); transition: transform .5s cubic-bezier(.2,.7,.1,1); display: inline-block; }
 .close__mail:hover i { transform: translateX(.35em); }
+.foot a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); }
+.foot a:hover { border-bottom-color: currentColor; }
 .foot { position: relative; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin: 0 var(--pad); padding: 22px 0 28px; border-top: 1px solid var(--line); color: var(--mute); }
 
 /* quiet reveals */
