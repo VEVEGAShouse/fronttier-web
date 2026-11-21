@@ -96,7 +96,7 @@
     if (X(n0) > L && z < .5) {
       c.fillStyle = 'rgba(11,16,20,.035)'; c.fillRect(L, h0 - A - 20, Math.min(X(n0), w - R) - L, A + 20);
       c.font = '400 10px "IBM Plex Mono", monospace'; c.fillStyle = MIST;
-      c.fillText('NORWAY HAS NO OIL YET', Math.max(L + 6, Math.min(X(n0), w - R) - 170), h0 - A - 4);
+      c.fillText('NORWAY HAS NO OIL YET', Math.max(L + 6, Math.min(X(n0), w - R) - 170), h0 - 12);
     }
     // Norway's cost line
     c.setLineDash([3, 5]); c.strokeStyle = INK; c.globalAlpha = .35; c.lineWidth = 1;
@@ -160,7 +160,7 @@
     mP.textContent = '$' + V[head];
     if (cur !== lastE) {
       lastE = cur; var ev = EV[cur];
-      mEv.classList.remove('flip'); void mEv.offsetWidth; mEv.classList.add('flip');
+      mEv.classList.remove('pop'); void mEv.offsetWidth; mEv.classList.add('pop');
       mEv.classList.toggle('flow', !!ev && ev.k === 'f');
       if (!ev) { mEvK.textContent = '1947 · Calm'; mEvT.textContent = 'A world that trades. Nobody needs the Arctic.'; mEvN.textContent = ''; barM.textContent = '66°33′N'; }
       else {
