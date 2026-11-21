@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Arcticonomics — The Arctic is the world’s mirror</title>
+  <meta name="description" content="Arcticonomics: above the Arctic Circle, the world’s crises turn into fortunes. Eighty years of the real oil price, mirrored. A FRONTTIER theory by Virginia E. Vegas.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f3f5f6">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+  <header class="bar mono">
+    <a href="#top" class="bar__b">Arcticonomics</a>
+    <span class="bar__m" id="barM">66°33′N</span>
+    <a href="mailto:admin@fronttier.io?subject=Arcticonomics" class="bar__c">Talk to us</a>
+  </header>
+
+  <!-- 0. the line -->
+  <section class="hero" id="top">
+    <div class="hero__up">
+      <p class="mono hero__k">A FRONTTIER theory</p>
+      <h1 class="hero__t">ARCTICONOMICS</h1>
+    </div>
+    <div class="circle"><span class="mono">66°33′N · The Arctic Circle</span></div>
+    <div class="hero__down">
+      <p class="hero__mir" aria-hidden="true">ARCTICONOMICS</p>
+      <p class="hero__s">Above this line, the world’s crises<br>turn into fortunes.</p>
+    </div>
+    <p class="mono hero__hint">Scroll ↓</p>
+  </section>
+
+  <!-- I. the mirror sentence -->
+  <section class="flip" id="flip" aria-labelledby="flipT">
+    <div class="flip__pin">
+      <p class="mono k">I · The law</p>
+      <h2 class="flip__a" id="flipT">When the world is at peace,<br>the Arctic is <span>worthless</span>.</h2>
+      <div class="flip__line"></div>
+      <p class="flip__b" id="flipB">When the world breaks,<br>the Arctic is <span>priceless</span>.</p>
+      <p class="flip__p">The Arctic economy is <b>counter-cyclical</b>: it moves in the opposite direction to the world’s.</p>
+    </div>
+  </section>
+
+  <!-- II. move the world -->
+  <section class="dial" id="dial" aria-labelledby="dialT">
+    <div class="dial__txt">
+      <p class="mono k">II · Move the world</p>
+      <h2 class="dial__t" id="dialT">A Saudi barrel costs <b>$2</b>.<br>A Norwegian barrel costs <b>$30</b>.</h2>
+      <p class="dial__p">2,000 metres under a freezing sea, with the world’s highest salaries. In a fair and peaceful market, nobody would buy it. Drag the world and see when they do.</p>
+    </div>
+    <div class="dial__lab">
+      <label class="mono dial__l" for="world"><span>Peace</span><span>Chaos</span></label>
+      <input type="range" id="world" min="0" max="100" value="8" aria-label="State of the world, from peace to chaos">
+      <div class="dial__out">
+        <div><p class="mono">Oil price</p><p class="dv" id="dPrice">$20</p></div>
+        <div><p class="mono">Norway, per barrel</p><p class="dv" id="dNo">−$10</p></div>
+      </div>
+      <p class="dial__say" id="dSay">Trade flows. The cheapest barrel wins. Nobody needs the Arctic.</p>
+      <p class="mono dial__f">Illustrative prices. Production costs as presented at Arctic Circle 2025.</p>
+    </div>
+  </section>
+
+  <!-- III. the mirror: eighty years -->
+  <section class="mirror" id="mirror" aria-labelledby="mirT">
+    <div class="mirror__pin">
+      <canvas id="mir" aria-label="Oil price 1947 to 2026 above the Arctic Circle, mirrored below as the world's crises"></canvas>
+      <div class="mir__head">
+        <p class="mono k" id="mirT">III · The proof · Real oil price, 1947 — 2026</p>
+      </div>
+      <div class="mir__now">
+        <p class="mir__y" id="mY">1947</p>
+        <p class="mono mir__p"><span id="mP">$26</span> a barrel, in October 2026 dollars</p>
+      </div>
+      <p class="mono mir__lab mir__lab--up">The Arctic gains ↑</p>
+      <p class="mono mir__lab mir__lab--dn">↓ The world breaks</p>
+      <div class="mir__ev" id="mEv">
+        <p class="mono" id="mEvK">1947 · Calm</p>
+        <p class="mir__evt" id="mEvT">A world that trades. Nobody needs the Arctic.</p>
+        <p class="mono" id="mEvN"></p>
+      </div>
+      <p class="mir__final" id="mFin">Eighty years. One shape.<br><span>Every rise above is a fracture below.</span></p>
+    </div>
+  </section>
+
+  <!-- IV. norway -->
+  <section class="no" aria-labelledby="noT">
+    <p class="mono k rv">IV · Norway</p>
+    <div class="no__grid">
+      <div class="no__c rv"><p class="no__v">Nobel</p><p class="mono">Oslo awards the Peace Prize</p></div>
+      <div class="no__x rv" aria-hidden="true">×</div>
+      <div class="no__c rv"><p class="no__v no__v--r">$2.3tn</p><p class="mono">Norway’s oil fund, June 2026</p></div>
+    </div>
+    <h2 class="no__t rv" id="noT">The symbol of peace grows richer when peace fails.</h2>
+  </section>
+
+  <!-- V. greenland -->
+  <section class="gl" aria-labelledby="glT">
+    <p class="mono k rv">V · Greenland</p>
+    <h2 class="gl__t rv" id="glT">Four billion years old.<br>Untouched. <span>Suddenly wanted.</span></h2>
+    <p class="gl__p rv">Greenland’s crust has barely changed since the Earth was young, which keeps its minerals pure. About $1.8 trillion of known resources at October 2025 prices, by a rough FRONTTIER estimate, under an island that is 80% ice. Greenland has not changed. The world around it has.</p>
+  </section>
+
+  <!-- VI. the paradox, and the end -->
+  <section class="end" aria-labelledby="endT">
+    <canvas id="crystal" aria-hidden="true"></canvas>
+    <div class="end__txt">
+      <p class="mono k rv">VI · The great Nordic paradox</p>
+      <h2 class="end__t rv" id="endT">The Nordics move forward<br>when the world moves <span>backward</span>.</h2>
+      <p class="end__p rv">Democratic in an autocratic world. Stable in a chaotic one. United in a fragmented one. Their story says peace; their economy says exception. Time to rethink the idea of the Nordics.</p>
+      <a class="end__cta rv" href="mailto:admin@fronttier.io?subject=Arcticonomics"><span class="mono">Bring Arcticonomics to your room</span>admin@fronttier.io <i>→</i></a>
+    </div>
+    <footer class="foot mono">
+      <span>First presented at Arctic Circle 2025 · Virginia E. Vegas</span>
+      <span>Data: FRED, WTI spot (WTISPLC), in October 2026 dollars (CPI-U)</span>
+      <a href="https://fronttier.io">A FRONTTIER AS project ↗</a>
+    </footer>
+  </section>
+
+  <script src="../data.js?v=1"></script>
+  <script src="app.js?v=1" defer></script>
+</body>
+</html>
